@@ -2,15 +2,27 @@ class Employee:
     def __init__(self, name, salary):
         self.get_salary = salary
         self.get_info = name
-        self.get_role = "Employee"
 
-    def action(self):
-        return f"Имя: {self.get_info} | Роль: {self.get_role} | Зарплата: {self.get_salary}"
+    def get_salary(self):
+        return self.get_salary
+
+    def get_role(self):
+        return "Employee"
+
+    def get_info(self):
+        return f"Имя: {self.get_info()} | Роль: {self.get_role()} | Зарплата: {self.get_salary()}"
 
 
-class BackendDeveloper(Employee):
-    def init(self, name, salary, level):
-        super().init(name, salary)
+emp = Employee("Alex", 30000)
+print(emp)
+
+
+
+
+
+class BackendDevelope(Employee):
+    def __init__(self, name, salary, level):
+        super().__init__(name, salary)
         self.level = level
 
     def get_salary(self):
@@ -18,15 +30,15 @@ class BackendDeveloper(Employee):
             return int(self.salary * 1.2)
         elif self.level == "senior":
             return int(self.salary * 1.5)
-        return self.salary  # junior
+        return self.salary
 
     def get_role(self):
-        return "BackendDeveloper"
+        return f"BackendDevelope({self.level})"
 
 
 class Manager(Employee):
-    def init(self, name, salary, team_size):
-        super().init(name, salary)
+    def __init__(self, name, salary, team_size):
+        super().__init__(name, salary)
         self.team_size = team_size
 
     def get_salary(self):
@@ -37,8 +49,8 @@ class Manager(Employee):
 
 
 class Intern(Employee):
-    def init(self, name, salary, months):
-        super().init(name, salary)
+    def __init__(self, name, salary, months):
+        super().__init__(name, salary)
         self.months = months
 
     def get_salary(self):
@@ -47,16 +59,23 @@ class Intern(Employee):
     def get_role(self):
         return "Intern"
 
-    def print_salary(employees):
-        for emp in employees:
-            print(emp.get_info())
+    dev = BackendDevelope("Alex", 50000, "senior")
+    mgr = Manager("Olga", 60000, 5)
+    intern = Intern("Max", 20000, 3)
 
-employees = [
-    BackendDeveloper("Artem", 40000, "middle"),
-    Manager("Oleg", 50000, 5),
-    Intern("Ivan", 20000, 3),
-]
-print_salary(employees)
-# print(emp.get_role)
-# print(emp.get_salary)
-# class BackendDeveloper:
+    print(dev.get_info())
+    print(mgr.get_info())
+    print(intern.get_salary())
+#
+#
+#
+# employees = [
+#     BackendDeveloper("Artem", 40000, "middle"),
+#     Manager("Oleg", 50000, 5),
+#     Intern("Ivan", 20000, 3),
+# ]
+#
+#
+# # print(emp.get_role)
+# # print(emp.get_salary)
+# # class BackendDeveloper:

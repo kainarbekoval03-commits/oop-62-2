@@ -44,7 +44,7 @@ class BankAccount:
     def bonus_for_level(self):
         return self.hero.lvl * 10
 
-    def str(self):
+    def __str__(self):
         return f"{self.hero.name} | Баланс: {self._balance} SOM"
 
     def __add__(self, other):
@@ -52,7 +52,7 @@ class BankAccount:
             return self._balance + other._balance
         raise TypeError("Ошибка: Нельзя сложить счета героев разных классов!")
 
-    def eq(self, other):
+    def __eq__(self, other):
         return (
             self.hero.name == other.hero.name and
             self.hero.lvl == other.hero.lvl
