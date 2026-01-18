@@ -66,16 +66,12 @@ class Intern(Employee):
     print(dev.get_info())
     print(mgr.get_info())
     print(intern.get_salary())
-#
-#
-#
-# employees = [
-#     BackendDeveloper("Artem", 40000, "middle"),
-#     Manager("Oleg", 50000, 5),
-#     Intern("Ivan", 20000, 3),
-# ]
-#
-#
-# # print(emp.get_role)
-# # print(emp.get_salary)
-# # class BackendDeveloper:
+
+
+
+employees = [
+    BackendDeveloper("Artem", 40000, "middle"),
+    Manager("Oleg", 50000, 5),
+    Intern("Ivan", 20000, 3),
+]
+
